@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Spotify Preview</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <h1>Spotify Preview</h1>
+    <input type="text" id="input" placeholder="Busca un canción o artista">
+
+    <div class="tracks">
+    </div>
+  </div>
+
+  <script id="songs-template" type="text/x-handlebars-template">
+    {{#each results}}
+    <div class="track">
+      <img src="{{album.images.[0].url}}" style="width: 120px;">
+      <div class="details">
+        <h3>{{name}}</h3>
+        <div class="artist">{{artists.[0].name}}</div>
+        <audio controls><source src="{{preview_url}}"></audio>
+      </div>
+    </div>
+    {{/each}}
+  </script>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.2/handlebars.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
